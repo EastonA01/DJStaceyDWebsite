@@ -1,169 +1,274 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DJ Stacey D & Beverly</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DJ Stacey D & Beverly</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            @keyframes fadeInDown {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+
+            .fade-in-down {
+                animation: fadeInDown 1s ease-out forwards;
             }
-        }
 
-        .fade-in-down {
-            animation: fadeInDown 1s ease-out forwards;
-        }
+            html {
+                scroll-behavior: smooth;
+            }
+        </style>
 
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    </head>
+    <!--TODO: Decouple JS script to proper file, replace "djpurple" style color with proper coloring, add additional styling & animations for sections of page (fade-in), add favicon-->
+    <body class="bg-gray-100 text-gray-900 font-sans">
 
-</head>
-<!--TODO: Decouple JS script to proper file, replace "djpurple" style color with proper coloring, add additional styling & animations for sections of page (fade-in)-->
-<body class="bg-gray-100 text-gray-900 font-sans">
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#top" class="text-xl font-bold text-djpurple">DJ Stacey D</a>
 
-<nav class="sticky top-0 z-50 bg-white shadow-md">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#top" class="text-xl font-bold text-djpurple">DJ Stacey D</a>
+            <!-- Hamburger Button -->
+            <button id="menu-toggle" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-djpurple" fill="none" stroke="currentColor" stroke-width="2"
+                     viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
 
-        <!-- Hamburger Button -->
-        <button id="menu-toggle" class="md:hidden focus:outline-none">
-            <svg class="w-6 h-6 text-djpurple" fill="none" stroke="currentColor" stroke-width="2"
-                 viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="#about" class="hover:text-djpurple transition">About</a></li>
+                <li><a href="#stacey" class="hover:text-djpurple transition">DJ Stacey</a></li>
+                <li><a href="#beverly" class="hover:text-djpurple transition">Beverly</a></li>
+                <li><a href="#services" class="hover:text-djpurple transition">Services</a></li>
+                <li><a href="#gallery" class="hover:text-djpurple transition">Photos</a></li>
+                <li><a href="#contact" class="hover:text-djpurple transition">Contact</a></li>
+                <li><a href="https://www.facebook.com/djstaceyd.stacey.dellinger"><img src="https://img.icons8.com/?size=100&id=118468&format=png&color=000000" alt="facebookIcon" class="h-[1.6em]"/></a></li>
+            </ul>
+        </div>
 
-        <!-- Desktop Menu -->
-        <ul class="hidden md:flex space-x-6 text-sm font-medium">
-            <li><a href="#about" class="hover:text-djpurple transition">About</a></li>
-            <li><a href="#stacey" class="hover:text-djpurple transition">DJ Stacey</a></li>
-            <li><a href="#beverly" class="hover:text-djpurple transition">Beverly</a></li>
-            <li><a href="#services" class="hover:text-djpurple transition">Services</a></li>
-            <li><a href="#gallery" class="hover:text-djpurple transition">Photos</a></li>
-            <li><a href="#contact" class="hover:text-djpurple transition">Contact</a></li>
+        <!-- Mobile Menu -->
+        <ul id="mobile-menu" class="md:hidden hidden flex-col space-y-4 px-6 pb-6 text-sm font-medium bg-white">
+            <li><a href="#about" class="block hover:text-djpurple transition">About</a></li>
+            <li><a href="#stacey" class="block hover:text-djpurple transition">DJ Stacey</a></li>
+            <li><a href="#beverly" class="block hover:text-djpurple transition">Beverly</a></li>
+            <li><a href="#services" class="block hover:text-djpurple transition">Services</a></li>
+            <li><a href="#gallery" class="block hover:text-djpurple transition">Photos</a></li>
+            <li><a href="#contact" class="block hover:text-djpurple transition">Contact</a></li>
+            <li><a href="https://www.facebook.com/djstaceyd.stacey.dellinger"><img src="https://img.icons8.com/?size=100&id=118468&format=png&color=000000" alt="facebookIcon" class="h-[1.6em]"/></a></li>
         </ul>
-    </div>
-
-    <!-- Mobile Menu -->
-    <ul id="mobile-menu" class="md:hidden hidden flex-col space-y-4 px-6 pb-6 text-sm font-medium bg-white">
-        <li><a href="#about" class="block hover:text-djpurple transition">About</a></li>
-        <li><a href="#stacey" class="block hover:text-djpurple transition">DJ Stacey</a></li>
-        <li><a href="#beverly" class="block hover:text-djpurple transition">Beverly</a></li>
-        <li><a href="#services" class="block hover:text-djpurple transition">Services</a></li>
-        <li><a href="#gallery" class="block hover:text-djpurple transition">Photos</a></li>
-        <li><a href="#contact" class="block hover:text-djpurple transition">Contact</a></li>
-    </ul>
-</nav>
+    </nav>
 
 
 
-<!-- HERO SECTION -->
-<header class="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-white" style="background-image: url('assets/images/HeroImage.jpeg')">
-    <div class="bg-black/50 absolute inset-0"></div>
-    <div class="z-10 text-center px-6 fade-in-down">
-        <h1 class="text-4xl md:text-6xl font-bold">Your Event Dream Team</h1>
-        <p class="mt-4 text-lg md:text-xl">Creating unforgettable memories — together.</p>
-    </div>
-</header>
-
-<!-- ABOUT SECTION -->
-<section class="py-16 px-6 max-w-5xl mx-auto text-center" id="about">
-    <h2 class="text-3xl font-bold mb-6">Meet Stacey & Beverly</h2>
-    <p class="text-lg leading-relaxed max-w-3xl mx-auto">
-        We're Stacey & Beverly — a husband and wife duo dedicated to making your event everything you've hoped for and more. From music to coordination, we're here to take the stress out and bring the energy in.
-    </p>
-</section>
-
-<!-- DJ STACEY -->
-<section class="bg-white py-16 px-6 max-w-5xl mx-auto" id="stacey">
-    <div class="md:flex md:items-center gap-8">
-        <img src="assets/images/DJStacey1.jpeg" alt="DJ Stacey D at soundboard" class="w-full md:w-1/2 rounded-lg shadow-md mb-8 md:mb-0" />
-        <div>
-            <h3 class="text-2xl font-semibold mb-4">DJ Stacey D</h3>
-            <p class="text-gray-700 leading-relaxed">
-                DJ Stacey’s goal is simple: to create lasting memories through music. A master at reading the crowd and maintaining high energy, he ensures that every guest has a night to remember. With an extensive music library spanning all genres and decades, he customizes the playlist to match your vibe — from Rock & Roll to Country, Beach music, and more. Whether it's a wedding, private party, or corporate event, DJ Stacey delivers top-notch sound, lighting, and atmosphere.
-            </p>
+    <!-- HERO SECTION -->
+    <header class="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-white" style="background-image: url('assets/images/HeroImage.jpeg')">
+        <div class="bg-black/50 absolute inset-0"></div>
+        <div class="z-10 text-center px-6 fade-in-down">
+            <h1 class="text-4xl md:text-6xl font-bold">Your Event Dream Team</h1>
+            <p class="mt-4 text-lg md:text-xl">Creating unforgettable memories — together.</p>
         </div>
-    </div>
-</section>
+    </header>
 
-<!-- BEVERLY -->
-<section class="bg-gray-50 py-16 px-6 max-w-5xl mx-auto" id="beverly">
-    <div class="md:flex md:items-center md:flex-row-reverse gap-8">
-        <img src="assets/images/Beverly1.jpeg" alt="Beverly with flowers or at rehearsal" class="w-full md:w-1/2 rounded-lg shadow-md mb-8 md:mb-0" />
-        <div>
-            <h3 class="text-2xl font-semibold mb-4">It’s Your Day – Beverly’s Touch</h3>
-            <p class="text-gray-700 leading-relaxed">
-                Beverly not only supports the music — she’s a certified Wedding Director. From rehearsal to the couple’s send-off, Beverly coordinates every detail. She ensures everyone knows their role, assists photographers with capturing the must-have moments, and manages the timeline — from the aisle walk to the cake cutting and toasts. Her goal? A stress-free day filled with beautiful memories.
-            </p>
+    <!-- ABOUT SECTION -->
+    <section class="py-16 px-6 max-w-5xl mx-auto text-center" id="about">
+        <h2 class="text-3xl font-bold mb-6">Meet Stacey & Beverly</h2>
+        <p class="text-lg leading-relaxed max-w-3xl mx-auto">
+            We're Stacey & Beverly — a husband and wife duo dedicated to making your event everything you've hoped for and more. From music to coordination, we're here to take the stress out and bring the energy in.
+        </p>
+    </section>
+
+    <!-- DJ STACEY -->
+    <section class="bg-white py-16 px-6 max-w-5xl mx-auto" id="stacey">
+        <div class="md:flex md:items-center gap-8">
+            <img src="assets/images/DJStacey1.jpeg" alt="DJ Stacey D at soundboard" class="w-full md:w-1/2 rounded-lg shadow-md mb-8 md:mb-0" />
+            <div>
+                <h3 class="text-2xl font-semibold mb-4">DJ Stacey D</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    DJ Stacey’s goal is simple: to create lasting memories through music. A master at reading the crowd and maintaining high energy, he ensures that every guest has a night to remember. With an extensive music library spanning all genres and decades, he customizes the playlist to match your vibe — from Rock & Roll to Country, Beach music, and more. Whether it's a wedding, private party, or corporate event, DJ Stacey delivers top-notch sound, lighting, and atmosphere.
+                </p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- SERVICES -->
-<section class="py-16 px-6 text-center bg-white" id="services">
-    <h2 class="text-3xl font-bold mb-6">Services Offered</h2>
-    <ul class="grid md:grid-cols-3 gap-4 text-lg font-medium">
-        <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-white hover:scale-105 cursor-pointer">Weddings</li>
-        <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-white hover:scale-105 cursor-pointer">Birthday Parties</li>
-        <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-white hover:scale-105 cursor-pointer">Pool Parties</li>
-        <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-white hover:scale-105 cursor-pointer">Graduations</li>
-        <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-white hover:scale-105 cursor-pointer">Reunions</li>
-        <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-white hover:scale-105 cursor-pointer">Corporate Events</li>
-    </ul>
-</section>
+    <!-- BEVERLY -->
+    <section class="bg-gray-50 py-16 px-6 max-w-5xl mx-auto" id="beverly">
+        <div class="md:flex md:items-center md:flex-row-reverse gap-8">
+            <img src="assets/images/Beverly1.jpeg" alt="Beverly with flowers or at rehearsal" class="w-full md:w-1/2 rounded-lg shadow-md mb-8 md:mb-0" />
+            <div>
+                <h3 class="text-2xl font-semibold mb-4">It’s Your Day – Beverly’s Touch</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Beverly not only supports the music — she’s a certified Wedding Director. From rehearsal to the couple’s send-off, Beverly coordinates every detail. She ensures everyone knows their role, assists photographers with capturing the must-have moments, and manages the timeline — from the aisle walk to the cake cutting and toasts. Her goal? A stress-free day filled with beautiful memories.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<!-- CONTACT -->
-<section class="py-16 px-6 bg-djpurple text-black text-center" id="contact">
-    <h2 class="text-3xl font-bold mb-4">Let’s Make Your Event a Hit</h2>
-    <p class="mb-6 text-lg">Reach out to us for bookings, availability, or questions.</p>
-    <ul class="space-y-2 text-lg">
-        <li><strong>DJ Stacey:</strong> 828-217-4950</li>
-        <li><strong>Beverly:</strong> 828-217-3672</li>
-        <li><strong>Email:</strong> <a href="mailto:djstaceyd71@gmail.com" class="underline">djstaceyd71@gmail.com</a></li>
-        <li><strong>Facebook:</strong> <a href="https://www.facebook.com/djstaceyd.stacey.dellinger" class="underline">Visit our page</a></li>
-    </ul>
-</section>
+    <!-- SERVICES -->
+    <section class="py-16 px-6 text-center bg-white" id="services">
+        <h2 class="text-3xl font-bold mb-6">Services Offered</h2>
+        <ul class="grid md:grid-cols-3 gap-4 text-lg font-medium">
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Weddings</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Birthday Parties</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Pool Parties</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Graduations</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Reunions</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Corporate Events</li>
+        </ul>
+    </section>
 
-<!-- PHOTO GALLERY -->
-<section class="py-16 px-6 max-w-6xl mx-auto text-center" id="gallery">
-    <h2 class="text-3xl font-bold mb-8">Photo Gallery</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <img src="assets/images/image11.jpeg" alt="Event 1" class="rounded-lg shadow" />
-        <img src="assets/images/image14.jpeg" alt="Event 2" class="rounded-lg shadow" />
-        <img src="assets/images/image16.jpeg" alt="Event 3" class="rounded-lg shadow" />
-        <!-- TODO: Add more images as needed -->
-    </div>
-</section>
+    <!-- TESTIMONIALS -->
+    <section class="py-16 px-6 bg-gray-50 text-center" id="testimonials">
+        <h2 class="text-3xl font-bold mb-10">What Clients Are Saying</h2>
 
-<!-- FOOTER -->
-<footer class="bg-gray-800 text-white py-6 text-center">
-    <p>&copy; 2025 DJ Stacey D & Beverly. All rights reserved.</p>
-</footer>
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="text-lg italic mb-4">"DJ STACEY D made this wedding so much fun!! He caters to all types of music lovers from young to older.
+                    If you want to hear a specific song, just tell him what it is and he will play it for you within minutes.
+                    He had the crowd on their feet the whole night! What a beautiful wedding and then what a fun party and send off for the bride and groom!
+                    Give the event team of Beverly and DJStaceyD a call and they will make your special event fun and one that will be remembered!"</p>
+                <p class="font-semibold text-djpurple">– Rene W., Wedding</p>
+            </div>
 
-<script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
+            <!-- Testimonial 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="text-lg italic mb-4">"Beverly was a lifesaver — her coordination kept everything running smoothly. We didn’t have to worry about a thing."</p>
+                <p class="font-semibold text-djpurple">– Mark & Tasha, Wedding</p>
+            </div>
 
-    menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-    });
+            <!-- Testimonial 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="text-lg italic mb-4">"Professional, fun, and easy to work with. Everyone from the kids to grandparents had a great time!"</p>
+                <p class="font-semibold text-djpurple">– Lauren M., Family Reunion</p>
+            </div>
 
-    mobileMenu.querySelectorAll("a").forEach(link =>
-        link.addEventListener("click", () => {
-            mobileMenu.classList.add("hidden");
-        })
-    );
-</script>
+            <!-- Testimonial 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="text-lg italic mb-4">"From music selection to lighting to vibe — flawless execution. Highly recommend for any event."</p>
+                <p class="font-semibold text-djpurple">– James T., Corporate Event</p>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+
+    <!-- CONTACT -->
+    <section class="py-16 px-6 bg-djpurple text-black text-center" id="contact">
+        <h2 class="text-3xl font-bold mb-4">Let’s Make Your Event a Hit</h2>
+        <p class="mb-6 text-lg">Reach out to us for bookings, availability, or questions.</p>
+        <ul class="space-y-2 text-lg">
+            <li><strong>DJ Stacey:</strong> 828-217-4950</li>
+            <li><strong>Beverly:</strong> 828-217-3672</li>
+            <li><strong>Email:</strong> <a href="mailto:djstaceyd71@gmail.com" class="underline">djstaceyd71@gmail.com</a></li>
+            <li><strong>Facebook:</strong> <a href="https://www.facebook.com/djstaceyd.stacey.dellinger" class="underline">Visit our page</a></li>
+        </ul>
+    </section>
+
+    <!-- PHOTO GALLERY - Carousel Version (Scaled Down) -->
+    <section class="py-16 px-6 max-w-4xl mx-auto text-center" id="gallery">
+        <h2 class="text-3xl font-bold mb-8">Photo Gallery</h2>
+
+        <div class="relative overflow-hidden">
+            <!-- Carousel Track -->
+            <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                <!-- Each image wrapped for sizing and centering -->
+                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
+                    <img src="assets/images/image11.jpeg" alt="Event 1" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                </div>
+                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
+                    <img src="assets/images/image14.jpeg" alt="Event 2" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                </div>
+                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
+                    <img src="assets/images/image16.jpeg" alt="Event 3" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                </div>
+                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
+                    <img src="assets/images/image0.jpeg" alt="Event 4" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                </div>
+                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
+                    <img src="assets/images/image12.jpeg" alt="Event 5" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                </div>
+                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
+                    <img src="assets/images/image15.jpeg" alt="Event 6" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                </div>
+                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
+                    <img src="assets/images/image1.jpeg" alt="Event 6" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                </div>
+                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
+                    <img src="assets/images/image10.jpeg" alt="Event 6" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                </div>
+                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
+                    <img src="assets/images/image13.jpeg" alt="Event 6" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                </div>
+            </div>
+            <!-- Navigation Buttons -->
+            <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black px-3 py-1 rounded shadow">
+                &#10094;
+            </button>
+            <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black px-3 py-1 rounded shadow">
+                &#10095;
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; 2025 DJ Stacey D & Beverly. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileMenu.querySelectorAll("a").forEach(link =>
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+            })
+        );
+    </script>
+
+    <script>
+        const track = document.getElementById('carousel-track');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        const slides = track.children;
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const width = slides[0].clientWidth;
+            track.style.transform = `translateX(-${currentIndex * width}px)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // loop to start
+            }
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = slides.length - 1; // loop to end
+            }
+            updateCarousel();
+        });
+
+        window.addEventListener('resize', updateCarousel);
+    </script>
+
+    </body>
+    </html>
