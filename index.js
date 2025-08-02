@@ -1,3 +1,8 @@
+// Debugging error, ignore
+window.onerror = function(message, source, lineno, colno, error) {
+    alert(`JS Error: ${message} at ${source}:${lineno}:${colno}`);
+};
+
 const track = document.getElementById('carousel-track');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -68,14 +73,25 @@ window.addEventListener("hashchange", highlightCurrentLink);
 const menuToggle = document.getElementById("menu-toggle");
 const mobileMenu = document.getElementById("mobile-menu");
 
-if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
-        const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", String(!expanded));
+let isExpanded = false;
 
-        if (!expanded) {
+if (menuToggle && mobileMenu) {
+    // Only add this once, outside of click handler
+    mobileMenu.addEventListener("transitionend", (event) => {
+        if (event.propertyName === "max-height" && !isExpanded) {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.style.maxHeight = null; // reset inline style
+        }
+    });
+
+    menuToggle.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+        menuToggle.setAttribute("aria-expanded", String(isExpanded));
+
+        if (isExpanded) {
+            // Opening menu
             mobileMenu.classList.remove("hidden");
-            mobileMenu.style.maxHeight = "0px";
+            mobileMenu.style.maxHeight = "0px"; // reset before animating
 
             requestAnimationFrame(() => {
                 mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
@@ -83,21 +99,15 @@ if (menuToggle && mobileMenu) {
                 mobileMenu.classList.add("opacity-100");
             });
         } else {
-            // animate closing
+            // Closing menu
             mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+
             requestAnimationFrame(() => {
                 mobileMenu.style.maxHeight = "0px";
                 mobileMenu.classList.remove("opacity-100");
                 mobileMenu.classList.add("opacity-0");
             });
-
-            mobileMenu.addEventListener("transitionend", function handler(event) {
-                if (event.propertyName === "max-height") {
-                    mobileMenu.classList.add("hidden");
-                    mobileMenu.style.maxHeight = null;
-                    mobileMenu.removeEventListener("transitionend", handler);
-                }
-            });
+            // Don't add/remove event listener here! It’s handled once above.
         }
     });
 }
