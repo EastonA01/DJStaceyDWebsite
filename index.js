@@ -1,16 +1,3 @@
-const menuToggle = document.getElementById("menu-toggle");
-const mobileMenu = document.getElementById("mobile-menu");
-
-menuToggle.addEventListener("click", () => {
-mobileMenu.classList.toggle("hidden");
-});
-
-mobileMenu.querySelectorAll("a").forEach(link =>
-link.addEventListener("click", () => {
-mobileMenu.classList.add("hidden");
-})
-);
-
 const track = document.getElementById('carousel-track');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -78,8 +65,45 @@ highlightCurrentLink();
 window.addEventListener("hashchange", highlightCurrentLink);
 });
 
-menuToggle.addEventListener("click", () => {
-const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-menuToggle.setAttribute("aria-expanded", !expanded);
-mobileMenu.classList.toggle("hidden");
-});
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+
+if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+        const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!expanded));
+
+        if (!expanded) {
+            // Show menu: remove hidden first, then animate max-height and opacity
+            mobileMenu.classList.remove("hidden");
+
+            // Allow the browser to paint before animating
+            requestAnimationFrame(() => {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px"; // dynamic height
+                mobileMenu.classList.remove("opacity-0");
+                mobileMenu.classList.add("opacity-100");
+            });
+        } else {
+            // Hide menu: animate max-height and opacity, then add hidden after transition
+            mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px"; // set explicit height for transition
+            requestAnimationFrame(() => {
+                mobileMenu.style.maxHeight = "0px";
+                mobileMenu.classList.remove("opacity-100");
+                mobileMenu.classList.add("opacity-0");
+            });
+
+            // Wait for transition to end before hiding completely
+            mobileMenu.addEventListener(
+                "transitionend",
+                function handler(event) {
+                    if (event.propertyName === "max-height") {
+                        mobileMenu.classList.add("hidden");
+                        mobileMenu.style.maxHeight = null; // reset inline style
+                        mobileMenu.removeEventListener("transitionend", handler);
+                    }
+                }
+            );
+        }
+    });
+}
+
