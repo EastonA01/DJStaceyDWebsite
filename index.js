@@ -1,8 +1,3 @@
-// Debugging error, ignore
-window.onerror = function(message, source, lineno, colno, error) {
-    alert(`JS Error: ${message} at ${source}:${lineno}:${colno}`);
-};
-
 const track = document.getElementById('carousel-track');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
