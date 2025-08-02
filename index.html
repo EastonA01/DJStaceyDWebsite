@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="DJ Stacey D & Beverly are a dynamic husband-and-wife duo offering professional DJ, MC, and certified wedding coordination services across events of all kinds. From unforgettable weddings to high-energy parties, we help make your day seamless and stress-free." />
         <title>DJ Stacey D & Beverly</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <style>
@@ -25,18 +26,22 @@
                 scroll-behavior: smooth;
             }
         </style>
-
+        <link rel="icon" type="image/png" href="assets/images/icons/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg" />
+        <link rel="shortcut icon" href="assets/images/icons/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png" />
+        <link rel="manifest" href="/assets/images/icons/site.webmanifest" />
     </head>
-    <!--TODO: Decouple JS script to proper file, replace "djpurple" style color with proper coloring, add additional styling & animations for sections of page (fade-in), add favicon-->
-    <body class="bg-gray-100 text-gray-900 font-sans">
+    <body class="bg-gray-100 text-gray-900 font-sans" id="top">
+    <main>
 
-    <nav class="sticky top-0 z-50 bg-white shadow-md">
+    <nav role="navigation" class="sticky top-0 z-50 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#top" class="text-xl font-bold text-djpurple">DJ Stacey D</a>
+            <a href="#top" class="text-xl font-bold text-black">DJ Stacey D</a>
 
             <!-- Hamburger Button -->
-            <button id="menu-toggle" class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6 text-djpurple" fill="none" stroke="currentColor" stroke-width="2"
+            <button id="menu-toggle" class="md:hidden focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
                      viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -44,24 +49,24 @@
 
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-6 text-sm font-medium">
-                <li><a href="#about" class="hover:text-djpurple transition">About</a></li>
-                <li><a href="#stacey" class="hover:text-djpurple transition">DJ Stacey</a></li>
-                <li><a href="#beverly" class="hover:text-djpurple transition">Beverly</a></li>
-                <li><a href="#services" class="hover:text-djpurple transition">Services</a></li>
-                <li><a href="#gallery" class="hover:text-djpurple transition">Photos</a></li>
-                <li><a href="#contact" class="hover:text-djpurple transition">Contact</a></li>
+                <li><a href="#about" class="text-gray-800 hover:opacity-80 transition-colors duration-200">About</a></li>
+                <li><a href="#stacey" class="text-gray-800 hover:opacity-80 transition-colors duration-200">DJ Stacey</a></li>
+                <li><a href="#beverly" class="text-gray-800 hover:opacity-80 transition-colors duration-200">Beverly</a></li>
+                <li><a href="#services" class="text-gray-800 hover:opacity-80 transition-colors duration-200">Services</a></li>
+                <li><a href="#gallery" class="text-gray-800 hover:opacity-80 transition-colors duration-200">Photos</a></li>
+                <li><a href="#contact" class="text-gray-800 hover:opacity-80 transition-colors duration-200">Contact</a></li>
                 <li><a href="https://www.facebook.com/djstaceyd.stacey.dellinger"><img src="https://img.icons8.com/?size=100&id=118468&format=png&color=000000" alt="facebookIcon" class="h-[1.6em]"/></a></li>
             </ul>
         </div>
 
         <!-- Mobile Menu -->
         <ul id="mobile-menu" class="md:hidden hidden flex-col space-y-4 px-6 pb-6 text-sm font-medium bg-white">
-            <li><a href="#about" class="block hover:text-djpurple transition">About</a></li>
-            <li><a href="#stacey" class="block hover:text-djpurple transition">DJ Stacey</a></li>
-            <li><a href="#beverly" class="block hover:text-djpurple transition">Beverly</a></li>
-            <li><a href="#services" class="block hover:text-djpurple transition">Services</a></li>
-            <li><a href="#gallery" class="block hover:text-djpurple transition">Photos</a></li>
-            <li><a href="#contact" class="block hover:text-djpurple transition">Contact</a></li>
+            <li><a href="#about" class="block text-gray-800 hover:opacity-80 transition-colors duration-200">About</a></li>
+            <li><a href="#stacey" class="block text-gray-800 hover:opacity-80 transition-colors duration-200">DJ Stacey</a></li>
+            <li><a href="#beverly" class="block text-gray-800 hover:opacity-80 transition-colors duration-200">Beverly</a></li>
+            <li><a href="#services" class="block text-gray-800 hover:opacity-80 transition-colors duration-200">Services</a></li>
+            <li><a href="#gallery" class="block text-gray-800 hover:opacity-80 transition-colors duration-200">Photos</a></li>
+            <li><a href="#contact" class="block text-gray-800 hover:opacity-80 transition-colors duration-200">Contact</a></li>
             <li><a href="https://www.facebook.com/djstaceyd.stacey.dellinger"><img src="https://img.icons8.com/?size=100&id=118468&format=png&color=000000" alt="facebookIcon" class="h-[1.6em]"/></a></li>
         </ul>
     </nav>
@@ -69,7 +74,8 @@
 
 
     <!-- HERO SECTION -->
-    <header class="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-white" style="background-image: url('assets/images/HeroImage.jpeg')">
+    <header role="banner" class="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-white">
+        <img src="assets/images/HeroImage.jpeg" alt="Crowd dancing at an event" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div class="bg-black/50 absolute inset-0"></div>
         <div class="z-10 text-center px-6 fade-in-down">
             <h1 class="text-4xl md:text-6xl font-bold">Your Event Dream Team</h1>
@@ -115,12 +121,12 @@
     <section class="py-16 px-6 text-center bg-white" id="services">
         <h2 class="text-3xl font-bold mb-6">Services Offered</h2>
         <ul class="grid md:grid-cols-3 gap-4 text-lg font-medium">
-            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Weddings</li>
-            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Birthday Parties</li>
-            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Pool Parties</li>
-            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Graduations</li>
-            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Reunions</li>
-            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-djpurple hover:text-gray-500 hover:scale-105 cursor-pointer">Corporate Events</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-white hover:text-gray-500 hover:scale-105 cursor-pointer">Weddings</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-white hover:text-gray-500 hover:scale-105 cursor-pointer">Birthday Parties</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-white hover:text-gray-500 hover:scale-105 cursor-pointer">Pool Parties</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-white hover:text-gray-500 hover:scale-105 cursor-pointer">Graduations</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-white hover:text-gray-500 hover:scale-105 cursor-pointer">Reunions</li>
+            <li class="bg-gray-100 py-4 rounded shadow-sm transition-all duration-300 hover:bg-white hover:text-gray-500 hover:scale-105 cursor-pointer">Corporate Events</li>
         </ul>
     </section>
 
@@ -134,33 +140,33 @@
                 <p class="text-lg italic mb-4">"DJ STACEY D made this wedding so much fun!! He caters to all types of music lovers from young to older.
                     If you want to hear a specific song, just tell him what it is and he will play it for you within minutes.
                     He had the crowd on their feet the whole night! What a beautiful wedding and then what a fun party and send off for the bride and groom!
-                    Give the event team of Beverly and DJStaceyD a call and they will make your special event fun and one that will be remembered!"</p>
-                <p class="font-semibold text-djpurple">– Rene W., Wedding</p>
+                    Give the event team of Beverly and DJStaceyD a call, and they will make your special event fun and one that will be remembered!"</p>
+                <p class="font-semibold text-white">– Rene W., Wedding</p>
             </div>
 
             <!-- Testimonial 2 -->
             <div class="bg-white p-6 rounded-lg shadow-md">
                 <p class="text-lg italic mb-4">"Beverly was a lifesaver — her coordination kept everything running smoothly. We didn’t have to worry about a thing."</p>
-                <p class="font-semibold text-djpurple">– Mark & Tasha, Wedding</p>
+                <p class="font-semibold text-white">– Mark & Tasha, Wedding</p>
             </div>
 
             <!-- Testimonial 3 -->
             <div class="bg-white p-6 rounded-lg shadow-md">
                 <p class="text-lg italic mb-4">"Professional, fun, and easy to work with. Everyone from the kids to grandparents had a great time!"</p>
-                <p class="font-semibold text-djpurple">– Lauren M., Family Reunion</p>
+                <p class="font-semibold text-white">– Lauren M., Family Reunion</p>
             </div>
 
             <!-- Testimonial 4 -->
             <div class="bg-white p-6 rounded-lg shadow-md">
                 <p class="text-lg italic mb-4">"From music selection to lighting to vibe — flawless execution. Highly recommend for any event."</p>
-                <p class="font-semibold text-djpurple">– James T., Corporate Event</p>
+                <p class="font-semibold text-white">– James T., Corporate Event</p>
             </div>
         </div>
     </section>
 
 
     <!-- CONTACT -->
-    <section class="py-16 px-6 bg-djpurple text-black text-center" id="contact">
+    <section class="py-16 px-6 bg-white text-black text-center" id="contact">
         <h2 class="text-3xl font-bold mb-4">Let’s Make Your Event a Hit</h2>
         <p class="mb-6 text-lg">Reach out to us for bookings, availability, or questions.</p>
         <ul class="space-y-2 text-lg">
@@ -177,98 +183,53 @@
 
         <div class="relative overflow-hidden">
             <!-- Carousel Track -->
-            <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
-                <!-- Each image wrapped for sizing and centering -->
-                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
-                    <img src="assets/images/image11.jpeg" alt="Event 1" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+        <div class="relative overflow-hidden" role="region" aria-label="Photo Gallery Carousel">
+            <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out" aria-live="polite">
+                <div class="carousel-slide w-full flex-shrink-0 flex justify-center items-center h-[500px]" role="group" aria-roledescription="slide" aria-label="1 of 9">
+                    <img src="assets/images/image11.jpeg" alt="Guests dancing at an outdoor wedding" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
                 </div>
-                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
-                    <img src="assets/images/image14.jpeg" alt="Event 2" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                <div class="carousel-slide w-full flex-shrink-0 flex justify-center items-center h-[500px]" role="group" aria-roledescription="slide" aria-label="2 of 9">
+                    <img src="assets/images/image14.jpeg" alt="Guests dancing at an indoor wedding" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
                 </div>
-                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
-                    <img src="assets/images/image16.jpeg" alt="Event 3" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                <div class="carousel-slide w-full flex-shrink-0 flex justify-center items-center h-[500px]" role="group" aria-roledescription="slide" aria-label="3 of 9">
+                    <img src="assets/images/image16.jpeg" alt="A bride and groom kissing" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
                 </div>
-                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
-                    <img src="assets/images/image0.jpeg" alt="Event 4" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                <div class="carousel-slide w-full flex-shrink-0 flex justify-center items-center h-[500px]" role="group" aria-roledescription="slide" aria-label="4 of 9">
+                    <img src="assets/images/image0.jpeg" alt="DJ Stacey's DJ Box" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
                 </div>
-                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
-                    <img src="assets/images/image12.jpeg" alt="Event 5" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                <div class="carousel-slide w-full flex-shrink-0 flex justify-center items-center h-[500px]" role="group" aria-roledescription="slide" aria-label="5 of 9">
+                    <img src="assets/images/image12.jpeg" alt="Two flower girls walking down the aisle" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
                 </div>
-                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
-                    <img src="assets/images/image15.jpeg" alt="Event 6" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                <div class="carousel-slide w-full flex-shrink-0 flex justify-center items-center h-[500px]" role="group" aria-roledescription="slide" aria-label="6 of 9">
+                    <img src="assets/images/image15.jpeg" alt="A bride and groom are saying their vows" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
                 </div>
-                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
-                    <img src="assets/images/image1.jpeg" alt="Event 6" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                <div class="carousel-slide w-full flex-shrink-0 flex justify-center items-center h-[500px]" role="group" aria-roledescription="slide" aria-label="7 of 9">
+                    <img src="assets/images/image1.jpeg" alt="DJ Stacey and his wife Beverly" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
                 </div>
-                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
-                    <img src="assets/images/image10.jpeg" alt="Event 6" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                <div class="carousel-slide w-full flex-shrink-0 flex justify-center items-center h-[500px]" role="group" aria-roledescription="slide" aria-label="8 of 9">
+                    <img src="assets/images/image10.jpeg" alt="A bride and groom hitting the dance floor" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
                 </div>
-                <div class="w-full flex-shrink-0 flex justify-center items-center h-[500px]">
-                    <img src="assets/images/image13.jpeg" alt="Event 6" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
+                <div class="carousel-slide w-full flex-shrink-0 flex justify-center items-center h-[500px]" role="group" aria-roledescription="slide" aria-label="9 of 9">
+                    <img src="assets/images/image13.jpeg" alt="Event goers dancing at the wedding" class="h-full w-auto max-h-[90%] rounded-lg shadow mx-auto object-contain" />
                 </div>
             </div>
-            <!-- Navigation Buttons -->
-            <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black px-3 py-1 rounded shadow">
+
+            <!-- Buttons -->
+            <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black px-3 py-1 rounded shadow" aria-label="Previous Slide" tabindex="0">
                 &#10094;
             </button>
-            <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black px-3 py-1 rounded shadow">
+            <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black px-3 py-1 rounded shadow" aria-label="Next Slide" tabindex="0">
                 &#10095;
             </button>
+        </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-800 text-white py-6 text-center">
+    <footer role="contentinfo" class="bg-gray-800 text-white py-6 text-center">
         <p>&copy; 2025 DJ Stacey D & Beverly. All rights reserved.</p>
     </footer>
-
-    <script>
-        const menuToggle = document.getElementById("menu-toggle");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        menuToggle.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-
-        mobileMenu.querySelectorAll("a").forEach(link =>
-            link.addEventListener("click", () => {
-                mobileMenu.classList.add("hidden");
-            })
-        );
-    </script>
-
-    <script>
-        const track = document.getElementById('carousel-track');
-        const prevBtn = document.getElementById('prev');
-        const nextBtn = document.getElementById('next');
-        const slides = track.children;
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            const width = slides[0].clientWidth;
-            track.style.transform = `translateX(-${currentIndex * width}px)`;
-        }
-
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < slides.length - 1) {
-                currentIndex++;
-            } else {
-                currentIndex = 0; // loop to start
-            }
-            updateCarousel();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-            } else {
-                currentIndex = slides.length - 1; // loop to end
-            }
-            updateCarousel();
-        });
-
-        window.addEventListener('resize', updateCarousel);
-    </script>
-
+    </main>
+    <script src="index.js" defer></script>
     </body>
     </html>
