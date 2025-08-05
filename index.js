@@ -94,7 +94,6 @@ if (menuToggle && mobileMenu) {
                 mobileMenu.classList.add("opacity-100");
             });
         } else {
-            // Closing menu
             mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
 
             requestAnimationFrame(() => {
@@ -102,7 +101,6 @@ if (menuToggle && mobileMenu) {
                 mobileMenu.classList.remove("opacity-100");
                 mobileMenu.classList.add("opacity-0");
             });
-            // Don't add/remove event listener here! It’s handled once above.
         }
     });
 }
